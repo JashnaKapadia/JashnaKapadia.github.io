@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Full Slider - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/full-slider.css" rel="stylesheet">
+    <script type="text/javascript">
+      ScrollRate = 50;
+
+      function scrollDiv_init() {
+        DivElmnt = document.getElementById('MyDivName');
+        ReachedMaxScroll = false;
+        DivElmnt.scrollTop = 0;
+        PreviousScrollTop  = 0;
+        ScrollInterval = setInterval('scrollDiv()', ScrollRate);
+      }
+
+      function scrollDiv() {
+        if (!ReachedMaxScroll) {
+          DivElmnt.scrollTop = PreviousScrollTop;
+          PreviousScrollTop++;
+          ReachedMaxScroll = DivElmnt.scrollTop >= (DivElmnt.scrollHeight - DivElmnt.offsetHeight);
+        }
+        else {
+          ReachedMaxScroll = (DivElmnt.scrollTop == 0)?false:true;
+          DivElmnt.scrollTop = PreviousScrollTop;
+          PreviousScrollTop--;
+        }
+      }
+
+      function pauseDiv() {
+        clearInterval(ScrollInterval);
+
+      }
+
+      function resumeDiv() {
+        PreviousScrollTop = DivElmnt.scrollTop;
+        ScrollInterval    = setInterval('scrollDiv()', ScrollRate);
+      }
+
+    </script>
+
+  </head>
+
+  <body onLoad="scrollDiv_init()">
+
+    
+    <div class="row" style="position: relative">
+      <div class="col col-lg-9 col-md-9">
+    <header>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>First Slide</h3>
+              <p>This is a description for the first slide.</p>
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Second Slide</h3>
+              <p>This is a description for the second slide.</p>
+            </div>
+          </div>
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Third Slide</h3>
+              <p>This is a description for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </header>
+  </div>
+  <div class="col col-lg-3 col-md-3">
+      <div style="height: 75vh;position:relative;margin-left: -20px">
+          <div id="MyDivName" style="max-height:100%;overflow:auto;" onMouseOver="pauseDiv()" onMouseOut="resumeDiv()">
+            <a class="twitter-timeline" href="https://twitter.com/NJIT?ref_src=twsrc%5Etfw">Tweets by NJIT</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </div>
+      <div style="height: 20vh; margin-top:10px;padding: 10px">
+      <div class="" style="">
+       <div style="width: 600px"><iframe style="display: block;" src="https://cdnres.willyweather.com/widget/loadView.html?id=86076" width="550" height="520" frameborder="0"  scrolling="no"></iframe><a style="margin: -20px 0 0 0;z-index: 1;text-indent: -9999em;height: 20px;position: relative;display: block" href="https://www.willyweather.com/nj/essex-county/newark.html" rel="nofollow">forecast for newark</a></div>
+  </div>
+  
+  </div>
+</div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
